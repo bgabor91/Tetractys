@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by bgabor91 (http://jsbin.com/menebar/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Tetractys">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Practice JavaScript by drawing</title>
+</head>
+<body>
+  <canvas id="myCanvas" height="320" width="450" style="border: 1px solid black"></canvas>
+<script id="jsbin-javascript">
+var c = document.getElementById('myCanvas').getContext('2d');
+var x = 225;
+var y = 40;
+var a = 80;
+var m = a*Math.sqrt(3)/2
+var color = ['#E36266','#26AD49','#228180'];
+
+for (var i = 0; i < 3; i++){
+   var peak = [x - (a/2) * i , y + m * i];
+   for (var j = 0; j<=i; j++){
+   c.beginPath();
+   c.moveTo(peak[0],peak[1]);
+   c.lineTo(peak[0]+a/2,peak[1]+m);
+   c.lineTo(peak[0]-a/2,peak[1]+m);
+   c.fillStyle = color[i];
+   c.fill();
+   peak[0] += a;
+  }
+}
+  
+</script>
+</body>
+</html>
